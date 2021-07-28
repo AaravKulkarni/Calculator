@@ -1,0 +1,343 @@
+<html lang="en">
+    <head>
+        <title>Calculator</title>
+        <meta charset="utf-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Calculator</h1>
+        <hr>
+        <br>
+        <section id="basic">
+        <h1><b>Basic Operations</b></h1>
+        <br>
+        <p>First Number: <input type="number" id="num1"></p>
+        <br>
+        <p>Second Number: <input type="number" id="num2"></p>
+        <span>
+            <button type="button" onclick="add()">Add</button>
+            &nbsp;
+            <button type="button" onclick="sub()">Subtract</button>
+            &nbsp;
+            <button type="button" onclick="mul()">Multiply</button>
+            &nbsp;
+            <button type="button" onclick="div()">Divide</button>
+        </span>
+        <br>
+        <p id="answer"></p>
+    </section>
+    <br>
+    <section class="root">
+        <h1><b>Square Root</b></h1>
+        <br>
+        <p>Number: <input type="number" id="root1"></p>
+        <br>
+        <button type="button" onclick="root()">Calculate</button>
+        <br>
+        <p id="res"></p>
+    </section>
+    <br>
+    <section>
+        <h1><b>Greater and Lesser</b></h1>
+        <br>
+        <p>First Number: <input type="number" id="gl1"></p>
+        <br>
+        <p>Second Number: <input type="number" id="gl2"></p>
+        <br>
+        <span>
+            <button type="button" onclick="great()">Greater Number</button>
+            &nbsp;
+            <button type="button" onclick="less()">Lesser Number</button>
+        </span>
+        <br>
+        <p id="gl"></p>
+    </section>
+    <br>
+    <section>
+        <h1><b>Calculate Power</b></h1>
+        <br>
+        <p>Number: <input type="number" id="n"></p>
+        <br>
+        <p>Power: <input type="number" id="p"></p>
+        <br>
+        <button type="button" onclick="power()">Calculate</button>
+        <br>
+        <p id="a"></p>
+    </section>
+    <br>
+    <section>
+        <h1><b>Fractions to Decimals</b></h1>
+        <br>
+        <p>Numerator: <input type="number" id="nume"></p>
+        <hr id="frac">
+        <p>Denominator: <input type="number" id="deno"></p>
+        <br>
+        <button type="button" onclick="ftod()">Convert</button>
+        <br>
+        <p id="deci"></p>
+    </section>
+    <br>
+    <section>
+        <h1><b>Cube Root</b></h1>
+        <br>
+        <p>Number: <input type="number" id="cube"></p>
+        <br>
+        <button type="button" onclick="find()">Calculate</button>
+        <br>
+        <p id="rooted"></p>
+    </section>
+    <br>
+    <section>
+        <h1><b>Average Speed</b></h1>
+        <br>
+        <p>Distance: <input type="number" id="distance"> in kilometers</p>
+        <br>
+        <p>Time: <input type="number" id="time"> in hours</p>
+        <br>
+        <button type="button" onclick="speed()">Calculate</button>
+        <br>
+        <p id="speed"></p>
+        <p id="m/s"></p>
+    </section>
+    <br>
+    <section>
+        <h1><b>Round the Number</b></h1>
+        <br>
+      <p>Number: <input type="number" id="r"></p>
+      <br>
+      <button type="button" onclick="round()">Round</button>
+      <br>
+      <p id="rounded"></p>
+    </section>
+    <br>
+    <section>
+        <h1><b>km/h to m/s</b></h1>
+        <br>
+        <p>Speed in km/h: <input type="number" id="k"></p>
+        <br>
+        <button type="button" onclick="con()">Convert</button>
+        <br>
+        <p id="met"></p>
+    </section>
+    <br>
+    <section>
+        <h1><b>m/s to km/h</b></h1>
+        <br>
+        <p>Speed in m/s: <input type="number" id="speedinms"></p>
+        <br>
+        <button type="button" onclick="FindSpeedInMS()">Convert</button>
+        <br>
+        <p id="finded"></p>
+    </section>
+    <br>
+    <section>
+        <h1><b>km to m</b></h1>
+        <br>
+        <p>Distance in km: <input type="number" id="dkm"></p>
+        <br>
+        <button type="button" onclick="fromkmtom()">Convert</button>
+        <br>
+        <p id="convertedm"></p>
+    </section>
+    <br>
+    <section>
+    <h1><b>m to km</b></h1>
+    <br>
+    <p>Distance in m: <input type="number" id="dim"></p>
+    <br>
+    <button type="button" onclick="frommtokm()">Convert</button>
+    <br>
+    <p id="convertedkm"></p>
+    </section>
+    <script>
+        function frommtokm(){
+            var m= document.getElementById("dim").value;
+            var km= m*1000;
+            console.log(km);
+            if(!isNaN(km)){
+                document.getElementById("convertedkm").innerHTML="Distance is "+km+" km";
+            }
+        }
+
+        function fromkmtom(){
+            var km= document.getElementById("dkm").value;
+            var m= km/1000;
+            console.log(m);
+            if(!isNaN(m)){
+                document.getElementById("convertedm").innerHTML="Distance is "+m+" m";
+            }
+        }
+
+        function add(){
+            var field1= document.getElementById("num1").value;
+            var field2= document.getElementById("num2").value;
+            var result= parseFloat(field1)+parseFloat(field2);
+            console.log(result);
+            if(!isNaN(result)){
+                document.getElementById("answer").innerHTML="The answer is "+result;
+            }
+        }
+
+        function sub(){
+            var field1= document.getElementById("num1").value;
+            var field2= document.getElementById("num2").value;
+            var result= parseFloat(field1)-parseFloat(field2);
+            console.log(result);
+            if(!isNaN(result)){
+                document.getElementById("answer").innerHTML="The answer is "+result;
+            }
+        }
+
+        function mul(){
+            var field1= document.getElementById("num1").value;
+            var field2= document.getElementById("num2").value;
+            var result= parseFloat(field1)*parseFloat(field2);
+            console.log(result);
+            if(!isNaN(result)){
+                document.getElementById("answer").innerHTML="The answer is "+result;
+            }
+        }
+
+        function div(){
+            var field1= document.getElementById("num1").value;
+            var field2= document.getElementById("num2").value;
+            var result= parseFloat(field1)/parseFloat(field2);
+            console.log(result);
+            if(!isNaN(result)){
+                document.getElementById("answer").innerHTML="The answer is "+result;
+            }
+        }
+
+        function root(){
+            var SquareRoot= Math.sqrt(document.getElementById("root1").value);
+            console.log(SquareRoot);
+            if(!isNaN(SquareRoot)){
+                document.getElementById("res").innerHTML="Square root is "+SquareRoot;
+            }
+        }
+
+        function great(){
+          var GreaterNumber= Math.max(document.getElementById("gl1").value, document.getElementById("gl2").value);
+          console.log(GreaterNumber);
+          if(!isNaN(GreaterNumber)){
+              document.getElementById("gl").innerHTML="Greater number is "+GreaterNumber;
+          }
+        }
+
+        function less(){
+            var LesserNumber= Math.min(document.getElementById("gl1").value, document.getElementById("gl2").value);
+          console.log(LesserNumber);
+          if(!isNaN(LesserNumber)){
+              document.getElementById("gl").innerHTML="Lesser number is "+LesserNumber;
+          }
+        }
+
+        function power(){
+            var Power= Math.pow(document.getElementById("n").value, document.getElementById("p").value);
+            console.log(Power); 
+            if(!isNaN(Power)){
+              document.getElementById("a").innerHTML="Answer is "+Power;
+          }
+        }
+
+        function ftod(){
+            var Numerator= document.getElementById("nume").value;
+            var Denominator= document.getElementById("deno").value;
+            var Decimals= parseFloat(Numerator)/parseFloat(Denominator);
+            console.log(Decimals);
+            if(!isNaN(Decimals)){
+              document.getElementById("deci").innerHTML="Decimal value is "+Decimals;
+          }
+        }
+
+        function find(){
+            var CubeRoot= Math.cbrt(document.getElementById("cube").value);
+            console.log(CubeRoot);
+            if(!isNaN(CubeRoot)){
+              document.getElementById("rooted").innerHTML="Cube root is "+CubeRoot;
+          }
+        }
+
+        function speed(){
+            var Distance= document.getElementById("distance").value;
+            var Time= document.getElementById("time").value;
+            var Speed= parseFloat(Distance)/parseFloat(Time);
+            console.log(Speed);
+            var Inms= Speed*5/18;
+            console.log(Inms);
+            if(!isNaN(Speed)){
+              document.getElementById("speed").innerHTML="Average speed is "+Speed+" km/h";
+              document.getElementById("m/s").innerHTML="Average speed is "+Inms+" m/s";
+          }
+        }
+
+        function round(){
+            var Rounded= Math.round(document.getElementById("r").value);
+            console.log(Rounded);
+            if(!isNaN(Rounded)){
+              document.getElementById("rounded").innerHTML="Rounded number is "+Rounded;
+        }
+    }
+
+    function con(){
+        var kmh= document.getElementById("k").value;
+        var ms= kmh*5/18;
+        console.log(ms);
+        if(!isNaN(ms)){
+              document.getElementById("met").innerHTML="Speed in m/s is "+ms;
+        }
+    }
+
+    function FindSpeedInMS(){
+        var SpeedInMS= document.getElementById("speedinms").value;
+        var SpeedInKmH= SpeedInMS*18/5;
+        console.log(SpeedInKmH);
+        if(!isNaN(SpeedInKmH)) {
+            document.getElementById("finded").innerHTML="Speed in km/h is "+SpeedInKmH;
+        }
+    }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@700&family=Jacques+Francois+Shadow&display=swap');
+        body{
+            text-align: center;
+            background-color: silver;
+            color: black;
+            font-family: 'Crimson Pro', serif;
+        }
+
+        input{
+            width: 20%;
+            color: aqua;
+            background-color: black;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        button{
+            width: 100px;
+            height: 45px;
+            background-color: black;
+            color: aqua;
+            text-align: center;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        section{
+            border-radius: 20px;
+            border-color: aqua;
+            border-style: solid;
+            padding-top: 7px;
+            padding-bottom: 7px;
+        }
+
+        #frac{
+            width: 45%;
+        }
+    </style>
+    </body>
+</html>
